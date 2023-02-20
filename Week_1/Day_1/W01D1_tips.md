@@ -1,5 +1,7 @@
 # Roy's Note W01D1
 
+[Mentor Andy's github](https://github.com/ChristianNally/web-2023-Feb-06-west-samples)
+
 ## Gist
 
 A *gist* is just another git repository, except that its interface on GitHub's website is designed specifically for quickly and easily sharing code snippets. 
