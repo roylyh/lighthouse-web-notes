@@ -28,6 +28,53 @@ Almost all web applications allow users to manipulate data in various ways, whic
 | Update      | Update a record's value        | PUT |
 | Delete      | 	Delete a record        | DELETE |
 
+## Middleware
+Express is a routing and middleware web framework that has minimal functionality of its own: An Express application is essentially a series of middleware function calls.
+
+Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.
+
+Here are some useful middleware in Express:
+```javascript
+// Create a new morgan logger middleware function using the given format and options. 
+const morgan = require('morgan');
+app.use(morgan('dev'));
+
+// read cookie from header of reques
+const cookieParser = require('cookie-parser');
+const username = req.cookies.username;
+res.clearCookie("username");
+
+// This module stores the session data on the client within a cookie, while a module like express-session stores only a session identifier on the client within a cookie and stores the session data on the server, typically in a database.
+const cookieSession = require('cookie-session');
+app.use(cookieSession({
+  name: 'cookiemonster',
+  keys: ['key1', 'key2'],
+}));
+// clear the cookie on res or set req.session = null
+req.seesion = null;
+res.clearCookie("cookiemonster").clearCookie("cookiemonster.sig")
+
+// access public folder
+app.use(express.static('public'));
+
+// Create a new middleware function to override the req.method property with a new value. 
+const methodOverride = require('method-override');
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
+
+// A library to help you hash passwords.
+const bcrypt = require('bcryptjs');
+const hash = bcrypt.hashSync('bacon', 8); // 8 is salt
+bcrypt.compareSync(password in DB, hash); // true
+
+// This is a built-in middleware function in Express. It parses incoming requests with urlencoded payloads and is based on body-parser.
+app.use(express.urlencoded({ extended: false }));
+
+app.set('view engine', 'ejs');
+app.render("xxx", { key: value})
+```
+
+
 ## tips
 curl -i <url> show the response with header  
 [curl documentation](https://curl.se/docs/manpage.html)
