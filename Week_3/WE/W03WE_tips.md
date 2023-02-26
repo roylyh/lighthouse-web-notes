@@ -19,4 +19,14 @@ The browser creates a representation of the document known as the Document Objec
 When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
 
 **Capturing**
-![EventPropagation]()
+![EventPropagation](https://github.com/roylyh/lighthouse-web-notes/blob/52f70c7d0173c7a558456a8df58313272848e649/docs/EventPropagation.PNG)
+
+The standard DOM Events describes 3 phases of event propagation:  
+- Capturing phase – the event goes down to the element.
+- Target phase – the event reached the target element.
+- Bubbling phase – the event bubbles up from the element.
+
+[Bubbling and Capturing](https://javascript.info/bubbling-and-capturing)
+
+## Chrome DevTools
+[Overview](https://developer.chrome.com/docs/devtools/overview/)
