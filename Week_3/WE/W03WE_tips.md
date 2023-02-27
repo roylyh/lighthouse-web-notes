@@ -14,6 +14,9 @@ At the most basic level, a website consists of an HTML document. The browser tha
 
 The browser creates a representation of the document known as the Document Object Model. This model allows JavaScript to access the text content and elements of the website document as objects.
 
+**Event**
+[DOM Event](https://developer.mozilla.org/en-US/docs/Web/Events)
+
 ## Event Propagation
 **Bubbling**  
 When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
