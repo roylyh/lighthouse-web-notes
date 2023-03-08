@@ -40,4 +40,5 @@ There are 3 commands you need to know once PostgreSQL is installed:
 ## SQL
 JOIN  
 PostgreSQL supports inner join, left join, right join, full outer join, cross join, natural join, and a special kind of join called self-join. (self-join with alias)  
-[PostgreSQL Joins](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-joins/)
+[PostgreSQL Joins](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-joins/)  
+![join tables](https://github.com/roylyh/lighthouse-web-notes/blob/f6a3af66ccc16049ff9fa6e89ffb7035328eff19/docs/jointables.PNG)
