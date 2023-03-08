@@ -34,6 +34,22 @@ git push -u origin master
 
 note *` is called backtick character*
 
+local change but not change remote
+1. remote not exists; local exists
+```
+modify the .gitignore file
+```
+2. both remote and local exist
+```
+git update-index --assume-unchanged "filepath" //git关闭跟踪文件修改提交
+git update-index --no-assume-unchanged "filepath"//git打开跟踪文件修改提交
+```
+3. delete the remote but keep the local
+```
+git rm -r -n --cached  filepath // -n just show not excute rm
+git rm -r --cached  filepath
+```
+
 ## Command Line Args
 ```
 const args = process.argv;
