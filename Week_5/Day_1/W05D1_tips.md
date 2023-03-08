@@ -33,7 +33,7 @@ There are 3 commands you need to know once PostgreSQL is installed:
 \df list available functions  
 \du list users and their roles  
 \i filename execute psql commands from a file  
-\? get help  
+\\? get help  
 \time turn on query execution time  
 \q quit psql
 
