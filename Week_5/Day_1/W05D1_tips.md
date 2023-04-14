@@ -47,3 +47,6 @@ PostgreSQL supports inner join, left join, right join, full outer join, cross jo
 ## Explain
 Known as a Query Plan or Execution Plan, EXPLAIN shows us information such as which tables are scanned, and which indexes are used for JOINs.  
 [postgresql - explain](https://www.postgresql.org/docs/9.0/sql-explain.html)
+
+## Self Join
+In this activity we will practice JOINing a table to itself.(SQLZoo)
