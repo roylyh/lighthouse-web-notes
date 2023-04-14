@@ -42,3 +42,8 @@ JOIN
 PostgreSQL supports inner join, left join, right join, full outer join, cross join, natural join, and a special kind of join called self-join. (self-join with alias)  
 [PostgreSQL Joins](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-joins/)  
 ![join tables](https://github.com/roylyh/lighthouse-web-notes/blob/f6a3af66ccc16049ff9fa6e89ffb7035328eff19/docs/jointables.PNG)
+[Visual explanation of sql join](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/)
+
+## Explain
+Known as a Query Plan or Execution Plan, EXPLAIN shows us information such as which tables are scanned, and which indexes are used for JOINs.  
+[postgresql - explain](https://www.postgresql.org/docs/9.0/sql-explain.html)
