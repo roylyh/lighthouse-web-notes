@@ -108,5 +108,6 @@ The key information that must be present in an ERD:
 3. The relations between each entity.  
 
 There are multiple options for symbols to draw in order to identify the relationship type, here we are using a crows foot.
-![ERD example](docs/ERDLHL.png)
+![ERD example](https://github.com/roylyh/lighthouse-web-notes/blob/a2b46b5b3630b911d3ecddccc6db375f764f3b30/docs/ERDLHL.png)
+
 
