@@ -51,3 +51,9 @@ https://node-postgres.com/features/pooling#pooling
 ## SQL injection attacks
 pool.query(queryString, values);
 
+## Lighthouse Bnb
+The database.js is responsible for all queries to the database. It doesn't currently connect to any database, all it does is return data from .json files.  
+They all return promises to simulate real world code as all of our database queries will be using promises.
+
+## SQL
+Using NULL & Numberic
