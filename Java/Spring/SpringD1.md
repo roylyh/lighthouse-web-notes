@@ -7,7 +7,8 @@ The advantages of this architecture are:
 - greater modularity of a program
 - greater ease in testing a program by isolating a component or mocking its dependencies, and allowing components to communicate through contracts
 DI (Dependency Injection)
-Dependency injection is a pattern we can use to implement IoC, where the control being inverted is setting an object's dependencies.
+Dependency injection is a pattern we can use to implement IoC, where the control being inverted is setting an object's dependencies.  
+**One of the main features of the Spring framework is the IoC (Inversion of Control) container. The Spring IoC container is responsible for managing the objects of an application. It uses dependency injection to achieve inversion of control.**
 
 ## Bean Scopes
 The scope of a bean defines the life cycle and visibility of that bean in the contexts we use it.
@@ -103,3 +104,28 @@ public class CollegeConfig {
 	}
 }
 ```
+
+## Spring IoC Container
+**BeanFactory**  
+Beans are the java objects which form the backbone of a Spring application and are managed by Spring IoC container.  
+The Spring Container is responsible for instantiating, configuring, and assembling the beans. 
+The *BeanFatory* Interface  
+The  BeanFactory interface is the simplest container providing an advanced configuration mechanism to instantiate, configure and manage the life cycle of beans.  BeanFactory uses Beans and their dependencies metadata to create and configure them at run-time. 
+
+## ApplicationContext
+The interfaces BeanFactory and ApplicationContext represent the Spring IoC container. Here, BeanFactory is the root interface for accessing the Spring container. It provides basic functionalities for managing beans.  
+On the other hand, **the ApplicationContext is a sub-interface of the BeanFactory.** Therefore, it offers all the functionalities of BeanFactory.  
+Furthermore, it provides more *enterprise-specific functionalities*. 
+
+## Annotation
+@Autowired  
+It allows Spring to resolve and inject collaborating beans into our bean.  
+The Spring framework enables automatic dependency injection. In other words, by declaring all the bean dependencies in a Spring configuration file, *Spring container can autowire relationships between collaborating beans*. This is called Spring bean autowiring.
+After enabling annotation injection, we can use autowiring on **properties, setters, and constructors**.  
+
+循环依赖 @Lazy
+circular dependency
+A circular or cyclic dependency is a situation where two or more independent modules or components rely on each other to function properly. 
+
+## Bean life cycle
+![bean lifecycle](/docs/beanlifecycle.JPG)
