@@ -129,3 +129,17 @@ A circular or cyclic dependency is a situation where two or more independent mod
 
 ## Bean life cycle
 ![bean lifecycle](/docs/beanlifecycle.JPG)
+[bean lifecycle Chinese](https://segmentfault.com/a/1190000040365130)  
+我们知道对于普通的 Java 对象来说，它们的生命周期就是：
+- 实例化
+- 该对象不再被使用时通过垃圾回收机制进行回收  
+而对于 Spring Bean 的生命周期来说：
+- 实例化 Instantiation
+- 属性赋值 Populate
+- 初始化 Initialization
+- 销毁 Destruction
+实例化 -> 属性赋值 -> 初始化 -> 销毁
+
+## Idea的项目引入
+https://www.bilibili.com/video/BV1t24y1o7Vi 中的MAVEN后半部分
+Maven Project -- right mouse key + Add as Maven Project
