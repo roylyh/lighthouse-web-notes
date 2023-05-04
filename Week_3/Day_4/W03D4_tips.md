@@ -54,3 +54,9 @@ Using "session-cookie"
   const postRouter = require('./routes/post-router');
   app.use('/posts', postRouter);
   ```
+
+## Session Cookies vs. JSON Web tokens
+“Http” is a “stateless” protocol, in that every http call made to a server is like a fresh call, with no memory or “state” of the previous calls.  
+There are primarily two different approaches to session management,
+- Session or Cookies based approach (server generates a cookie)
+- JWT (JSON Web Tokens) based approach (server generates an access Token)
