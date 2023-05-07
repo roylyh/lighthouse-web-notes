@@ -4,6 +4,17 @@
 **Hashing**:
 * The original string is passed into a function that performs some kind of transformation on it and returns a different string (the _hash_)
 * This is a one way process: a hashed value cannot be retrieved
+**bcrypt**
+```javascript
+npm install bcryptjs
+const bcrypt = require("bcryptjs");
+const password = "purple-monkey-dinosaur"; // found in the req.body object
+const hashedPassword = bcrypt.hashSync(password, 10);
+bcrypt.compareSync("purple-monkey-dinosaur", hashedPassword); // returns true
+bcrypt.compareSync("pink-donkey-minotaur", hashedPassword); // returns false
+
+```
+
 
 ## Encrypted Cookies
 Using "session-cookie"
@@ -60,3 +71,9 @@ Using "session-cookie"
 There are primarily two different approaches to session management,
 - Session or Cookies based approach (server generates a cookie)
 - JWT (JSON Web Tokens) based approach (server generates an access Token)
+
+[npm jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)  
+jwt.sign  
+jwt.verify  
+https://github.com/roylyh/JWT-Auth
+
