@@ -27,3 +27,13 @@ For more information on Forms in React, read the [official docs](https://legacy.
 
 ## Fragment
 Unlike a <div>, a React <Fragment> does not create any extra DOM nodes, which can clutter up your HTML output and cause problems with your layout.
+```js
+<Fragment>
+  <h1>A heading</h1>
+  <p>A paragraph</p>
+</Fragment>
+or <></>
+``` 
+
+## Styling Components
+[Four ways to style react componentss](https://codeburst.io/4-four-ways-to-style-react-components-ac6f323da822)
