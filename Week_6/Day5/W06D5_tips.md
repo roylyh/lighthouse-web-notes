@@ -61,3 +61,27 @@ This event handler will listen to change events on input elements, like an input
 This event handler will listen to submit events on submittable elements, like a form. Using the event parameter will give access to information about the event, like the **content of the form**, and a method to **prevent the default behavior of a form submission**.
 
 **[JavaScript Patterns For React](https://reacttraining.com/blog/javascript-the-react-parts)**
+
+## React Project
+tourney-matches (basic knowledge of React Props)
+- Conditional Rendering
+```js
+if(props.yourName) {
+      <h1>Hello, {props.yourName}.</h1>
+    } else {
+      <h1>Sorry, you don't seem to have a name.</h1>
+    }
+```
+- Ternary Operator
+```js
+function Hello(props) { 
+// CORRECT: Ternary is allowed. One of the two <h1s> will be rendered
+  return (props.yourName ? <h1>Hello, {props.yourName}.</h1> : <h1>Sorry, you don't seem to have a name.</h1>);
+}
+```
+- Short Circuit Evaluation
+```js
+function Hello(props) { 
+  return (props.yourName && <h1>Hello {props.yourName}</h1>);
+}
+```
