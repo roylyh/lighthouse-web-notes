@@ -230,3 +230,91 @@ Store unrepeatable keys. (need to equals and hashcode) HashSet most common class
 - boolean remove(Object e)
 - boolean contains(Object e)
 
+## Queue
+First In First Out  
+List - 在任意位置添加和删除元素  
+Queue - 把元素添加到队列末尾；从队列头部取出元素  
+- int size() 获取队列长度
+- boolean add(E) / boolean offer(E) 添加元素到队尾
+- E remove() / E poll() 获取队首元素并从队列中删除
+- E element() / E peek() 获取队首元素但并不从队列中删除
+![Queue-Java](../../docs/Queue-Java.JPG)
+```java
+import java.util.LinkedList;
+import java.util.Queue;
+public class Main {
+    public static void main(String[] args) {
+        Queue<String> q = new LinkedList<>();
+        // LinkedList即实现了List接口，又实现了Queue接口 
+        // 在使用的时候，如果我们把它当作List，就获取List的引用，如果我们把它当作Queue，就获取Queue的引用：
+        // 添加3个元素到队列:
+        q.offer("apple");
+        q.offer("pear");
+        q.offer("banana");
+        // 从队列取出元素:
+        System.out.println(q.poll()); // apple
+        System.out.println(q.poll()); // pear
+        System.out.println(q.poll()); // banana
+        System.out.println(q.poll()); // null,因为队列是空的
+    }
+}
+```
+
+## priorityQueue
+PriorityQueue和Queue的区别在于，它的出队顺序与元素的优先级有关，对PriorityQueue调用remove()或poll()方法，返回的总是优先级最高的元素。
+```java
+import java.util.PriorityQueue;
+import java.util.Queue;
+public class Main {
+    public static void main(String[] args) {
+        Queue<String> q = new PriorityQueue<>();
+        // 添加3个元素到队列:
+        q.offer("apple");
+        q.offer("pear");
+        q.offer("banana");
+        System.out.println(q.poll()); // apple
+        System.out.println(q.poll()); // banana
+        System.out.println(q.poll()); // pear
+        System.out.println(q.poll()); // null,因为队列为空
+    }
+}
+```
+放入PriorityQueue的元素，必须实现Comparable接口，PriorityQueue会根据元素的排序顺序决定出队的优先级.
+
+## Deque Double Ended Queue
+既可以添加到队尾，也可以添加到队首； 既可以从队首获取，又可以从队尾获取。
+![Priority Queue Java](../../docs/PriorityQueue-Java.JPG)
+```java
+import java.util.Deque;
+import java.util.LinkedList;
+public class Main {
+    public static void main(String[] args) {
+        Deque<String> deque = new LinkedList<>();
+        deque.offerLast("A"); // A
+        deque.offerLast("B"); // A <- B
+        deque.offerFirst("C"); // C <- A <- B
+        System.out.println(deque.pollFirst()); // C, 剩下A <- B
+        System.out.println(deque.pollLast()); // B, 剩下A
+        System.out.println(deque.pollFirst()); // A
+        System.out.println(deque.pollFirst()); // null
+    }
+}
+```
+我们发现LinkedList真是一个全能选手，它即是List，又是Queue，还是Deque。但是我们在使用的时候，总是用特定的接口来引用它，这是因为持有接口说明代码的抽象层次更高，而且接口本身定义的方法代表了特定的用途。
+```java
+// 不推荐的写法:
+LinkedList<String> d1 = new LinkedList<>();
+d1.offerLast("z");
+// 推荐的写法：
+Deque<String> d2 = new LinkedList<>();
+d2.offerLast("z");
+```
+可见面向抽象编程的一个原则就是：尽量持有接口，而不是具体的实现类。
+
+## Stack
+LIFO Last In First Out
+在Java中，我们用Deque可以实现Stack的功能：
+- 把元素压栈：push(E)/addFirst(E)；
+- 把栈顶的元素“弹出”：pop()/removeFirst()；
+- 取栈顶元素但不弹出：peek()/peekFirst()。  
+(当我们把Deque作为Stack使用时，注意只调用push()/pop()/peek()方法)
