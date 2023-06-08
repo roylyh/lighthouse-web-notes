@@ -31,3 +31,30 @@ Once we've declared the starter parent in our project, we can pull any dependenc
   <relativePath/> <!-- lookup parent from repository -->
 </parent>
 ```
+
+## application.yml
+
+## config class
+1. MpConfig - paginationInterceptor
+2. Swigger2Config - Swigger2
+
+## util class
+1. CreateVerifiCodeImage
+2. JwtHelper - token
+3. AuthContextHolder - parse the token in the request
+4. MD5
+5. Result - JSON response encapsulation
+6. ResultCodeEnum - enum
+7. UploadFile
+
+## POJO class
+(Lombok & MybatisPlus)
+1. Admin
+2. Grade ...
+
+## Mapper Interface
+```java
+@Repository
+public interface AdminMapper extends BaseMapper<Admin> {
+}
+```
