@@ -58,3 +58,52 @@ Once we've declared the starter parent in our project, we can pull any dependenc
 public interface AdminMapper extends BaseMapper<Admin> {
 }
 ```
+
+## Service Interface
+```java
+public interface AdminService extends IService<Admin> {
+    Admin login(LoginForm loginForm);
+
+    Admin getAdminById(Long userId);
+
+    IPage<Admin> getAllAdmin(Page<Admin> pageparam, String adminName);
+}
+```
+
+## Service Impl Class
+```java
+public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements AdminService  {
+
+    @Override
+    public Admin login(LoginForm loginForm) {
+        QueryWrapper<Admin> QueryWrapper = new QueryWrapper<>();
+        QueryWrapper.eq("name",loginForm.getUsername());
+        String encrypt = MD5.encrypt(loginForm.getPassword());
+        QueryWrapper.eq("password",encrypt);
+        Admin admin = baseMapper.selectOne(QueryWrapper);
+        return admin;
+    }
+}    
+```
+
+## Controller Class
+```java
+@RestController
+@RequestMapping("/sms/adminController")
+public class AdminController {
+
+    @Autowired
+    private AdminService adminService;
+    // GET http://localhost:9002/sms/adminController/getAllAdmin/1/3?    adminName=a
+    @GetMapping("/getAllAdmin/{pageNo}/{pageSize}")
+    public Result getAllAdmin(
+            @PathVariable("pageNo") Integer pageNo,
+            @PathVariable("pageSize") Integer pageSize,
+            @RequestParam(value = "adminName",required = false) String adminName
+    ) {
+        Page<Admin> pageparm = new Page<Admin>(pageNo, pageSize);
+        IPage<Admin> Ipage = adminService.getAllAdmin(pageparm,adminName);
+        return Result.ok(Ipage);
+    }
+}
+``
